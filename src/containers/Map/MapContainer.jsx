@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  padding: 2rem;
+`;
+
+const Card = styled.div`
+  background: #fff;
+  width: auto;
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.22) 0px 1px 3px;
+`;
+ 
 class MapContainer extends Component {
   static defaultProps = {
     bootstrapURLKeys:"AIzaSyC7uA0vNvcOcVJz9vSeS2Isn2zYF7q5K1w",
@@ -37,16 +49,20 @@ class MapContainer extends Component {
  
   render() {
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: this.state.bootstrapURLKeys }}
-          defaultCenter={this.state.center}
-          defaultZoom={this.state.zoom}
-        >
-          { this.building() }
-        </GoogleMapReact>
-      </div>
+      <Wrapper>
+        <Card>
+          // Important! Always set the container height explicitly
+          <div style={{ height: '100vh', width: '100%' }}>
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: this.state.bootstrapURLKeys }}
+              defaultCenter={this.state.center}
+              defaultZoom={this.state.zoom}
+            >
+              { this.building() }
+            </GoogleMapReact>
+          </div>
+        </Card>
+      </Wrapper>
     );
   }
 }
