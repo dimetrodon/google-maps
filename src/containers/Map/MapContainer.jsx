@@ -34,7 +34,7 @@ class MapContainer extends Component {
     this.state = Object.assign({}, this.defaultProps, props);
   }
 
-  building (props){
+  building (){
     return this.state.markers.map( (marker, row) => {
       return (
         <div
